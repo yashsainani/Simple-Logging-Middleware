@@ -26,7 +26,7 @@ app.get('/api/v1/logging-middleware', (req, res) => {
             timestamp: new Date().toISOString(),
             responseTime: `${Date.now() - req.responseTime}ms`,
             requestedNo: a ++,
-            ipAddress: req.ip
+            ipAddress: req.ip === '::1' ? '127.0.0.1' : req.ip
         }
     })
 });

@@ -25,7 +25,8 @@ app.get('/api/v1/logging-middleware', (req, res) => {
             requestedMethod: req.method,
             timestamp: new Date().toISOString(),
             responseTime: `${Date.now() - req.responseTime}ms`,
-            requestedNo: a ++
+            requestedNo: a ++,
+            ipAddress: req.ip
         }
     })
 });
